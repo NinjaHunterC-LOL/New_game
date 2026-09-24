@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+    <link rel="stylesheet" href="/assets/styles/starting-page.css">
+    <link rel="stylesheet" href="/assets/styles/village-screen.css">
+    <link rel="stylesheet" href="/assets/styles/shop-screen.css">
+    <link rel="stylesheet" href="/assets/styles/map-screen.css">
+    <link rel="stylesheet" href="/assets/styles/battle-screen.css">
+    <link rel="stylesheet" href="/assets/styles/inventory-screen.css">
+    <link rel="stylesheet" href="/assets/styles/seller-screen.css">
+    <link rel="stylesheet" href="/assets/styles/victory-screen.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+    
+    <title>RPG Game</title>
+</head>
+<body>
+    <audio id="sound-effect" src="">
+    </audio>
+    <div class="game-screen">
+        <div id="create-char-screen" class="create-char-screen">
+            <h1 class="start-title">The Quest for the Orb</h1>
+            <p class="description">Ajude sua vila recuperando o Orb que foi roubado pelo Rei Orc. Percorra todas as dungeons e derrote todos os chefes ate liberar o Forte dos Orcs, onde esta escondido o Orb</p>
+            <input id="name-input" type="text" placeholder="Escolha o nome do personagem">
+            <button onclick=startGame() id="name-button">Iniciar</button>
+            <p class="start-stats">Nos diga o seu nome aventureiro</p>
+        </div>
+        <div id="village-screen" class="village-screen">
+            <div class="page-title">Vila Nova Esperanca</div>
+            <div class="player-stats">
+                <p class="stats-01 stats"></p>
+                <p class="stats-02 stats"></p>
+                <p class="stats-03 stats"></p>
+                <p class="stats-04 stats"></p>
+                <button onclick=setVictoryScreen() class="victory-button">Finalizar jogo!</button>
+
+            </div>
+            <div class="village-char-box">
+                <div class="life-mana-box">
+                    <div class="life-bar-bg">
+                        <div class="life-bar"></div>
+                        <p class="life-bar-stats"></p>
+                    </div>
+                    <div class="mana-bar-bg">
+                        <div class="mana-bar"></div>
+                        <p class="mana-bar-stats"></p>
+                    </div>
+                </div>
+                <img class="village-char-img" src="assets/img/warrior-01-128.png" alt="">
+            </div>
+            <div class="village-buttons-box">
+                <button onclick=setShop() class="village-button">Loja</button>
+                <button onclick=setInventory() class="village-button">Inventario</button>
+                <button onclick=drinkLP() class="village-button">Pocao de vida</button>
+                <button onclick=drinkMP() class="village-button">Pocao de mana</button>
+                <button onclick=setMap() class="village-button">Explorar</button>
+                <button onclick=exitGame() class="village-button">Sair</button>
+            </div>
+        </div>
+        <div id="shop-screen">
+            <div class="page-title">Loja de Bugigangas</div>
+            <div class="player-stats">
+                <p class="shop-stats-01 stats"></p>
+                <p class="shop-stats-02 stats"></p>
+                
+            </div>
+            <div class="buying-box">
+                
+                <div class="shop-item-box">
+                    <img class="shop-item-img" src="assets/img/life-potion-01.png" alt="">
+                    <p onclick=showItemData(1) class="shop-item-name shop-item-1">Pocao de vida: </p>
+                    <input class="shop-item-input lp-input" type="number" placeholder="quant">
+                    <button onclick=buyEquipment(1) class="shop-item-button">Comprar</button>
+                </div>
+                <div class="shop-item-box">
+                    <img class="shop-item-img" src="assets/img/mana-potion-01.png" alt="">
+                    <p onclick=showItemData(2) class="shop-item-name shop-item-2">Pocao de mana: </p>
+                    <input class="shop-item-input mp-input" type="number" placeholder="quant">
+                    <button onclick=buyEquipment(2) class="shop-item-button">Comprar</button>
+                </div>
+                <div class="shop-item-box">
+                    <img class="shop-item-img" src="assets/img/iron-sword-01.png" alt="">
+                    <p onclick=showItemData(3) class="shop-item-name shop-item-3">Espada de Aco</p>
+                    <button onclick=buyEquipment(3) class="shop-item-button">Comprar</button>
+                </div>
+                <div class="shop-item-box">
+                    <img class="shop-item-img" src="assets/img/chain-armor-01.png" alt="">
+                    <p onclick=showItemData(4) class="shop-item-name shop-item-4">Armadura de Malha</p>
+                    <button onclick=buyEquipment(4) class="shop-item-button">Comprar</button>
+                </div>
+
+
+            
+            </div>
+            <div class="shop-footer">
+                <div class="shop-message">
+                    Bem vindo aventureiro! O que deseja comprar?                    
+                </div>
+                <div>
+                    <button  class="shop-exit-button" onclick=setSellerScreen()>Vender Itens</button>
+                    <button onclick=setVillage() class="shop-exit-button">Sair da loja</button>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div id="seller-screen">
+            <div class="page-title">
+                Loja de Bugigangas
+            </div>
+            <div class="player-stats">
+                <p class="selling-stats"></p>
+                <p class="selling-item-message">Selecione para ver as informacoes dos items</p>
+            </div>
+            <div class="seller-items-box">
+
+            </div>
+            <div class="seller-buttons-box">
+                <p class="selling-message">Selecione o item que deseja vender</p>
+                <div>
+                    <button class="seller-buttons" onclick=sellItem()>Vender</button>
+                    <button class="seller-buttons" onclick=setShop()>Voltar</button>
+                </div>
+                
+            </div>
+        </div>
+        <div id="inventory-screen">
+            <div class="page-title">Inventario</div>
+            <div class="player-stats">
+                <div class="equipped-box">
+                    <div onclick=selectShowItem(-1) class="equipped-weapon-img-box">
+                        <img class="equipped-weapon-img" src="" alt="">
+                    </div>
+                    <div onclick=selectShowItem(-2) class="equipped-armor-img-box">
+                        <img class="equipped-armor-img" src="" alt="">
+                    </div>
+                    
+                </div>
+                <p class="inventory-stats-01 stats">Clique para ver mais e selecionar</p>
+                <p class="inventory-stats-02 stats"></p>
+                
+            </div>
+            <div class="inventory-box">
+                <!-- <div onclick=selectShowItem(0) class="inventory-item-name">
+                    item de teste
+                </div> -->
+            </div>
+
+            <div class="inventory-item-selection">
+                <p class="inventory-message">Selecione um item para equipar</p>
+                <div class="map-buttons-box">
+
+                    <button onclick=equipItem() class="inventory-buttons">Equipar</button>
+                    <button onclick=setVillage() class="inventory-buttons">Sair do inventario</button>
+                </div>
+            </div>
+        </div>
+        <div id="map-screen">
+            <div class="page-title">Mapa</div>
+            <div class="player-stats">
+                <p class="map-stats-01 stats"></p>
+                <p class="map-stats-02 stats"></p>
+                
+            </div>
+            <div class="map-box">
+                <div onclick=selectRespawn(1) class="respawn-box clickable"><p class="respawn-text">Vila Goblin</p></div>
+                <div class="respawn-box"></div>
+                <div class="respawn-box"></div>
+                <div onclick=selectRespawn(2) class="respawn-box clickable"><p class="respawn-text">Forte dos Orcs</p></div>
+            </div>
+
+            <div class="map-respawn-selection">
+                <p class="map-message">Para onde deseja ir?</p>
+                <div class="map-buttons-box">
+
+                    <button onclick=goToRespawn() class="respawn-selection-button map-buttons">Ir</button>
+                    <button onclick=setVillage() class="map-exit-button map-buttons">Voltar para a vila</button>
+                </div>
+            </div>
+        </div>
+        <div id="battle-screen">
+            
+            <div class="page-title">Batalha</div>
+            <div class="player-stats">
+                <p class="battle-stats-01 stats"></p>
+                <p class="battle-stats-02 stats"></p>
+                <p class="battle-stats-03 stats"></p>
+                <p class="battle-stats-04 stats">Ataque para comecar!</p>
+                
+            </div>
+            <div class="battle-box">
+                
+                <div class="combat-box">
+                    <div class="hero-box">
+                        <div class="life-mana-box-btl">
+                            <div class="life-bar-bg-btl">
+                                <div class="life-bar-btl"></div>
+                                <p class="life-bar-stats-btl"></p>
+                            </div>
+                            <div class="mana-bar-bg-btl">
+                                <div class="mana-bar-btl"></div>
+                                <p class="mana-bar-stats-btl"></p>
+                            </div>
+                        </div>
+                        <img class="char-battle-img" src="assets/img/warrior-01-128.png" alt="">
+                    </div>
+                    <div class="monster-box">
+                        <div class="life-bar-bg-monster">
+                            <div class="life-bar-monster"></div>
+                            <p class="life-bar-stats-monster"></p>
+                        </div>
+                        <img class="monster-battle-img" src="" alt="">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="battle-options">
+                <button onclick=figth(1) class="attack-button battle-button">Ataque comum</button>
+                <button onclick=figth(2) class="special-attack-button battle-button">Ataque Especial</button>
+                <button disabled onclick=exitBattle() class="battle-exit-button battle-button">Voltar</button>
+                <button disabled onclick=goToRespawn() class="battle-continue-button battle-button">Continuar</button>
+                <button disabled onclick=drinkLP() class="battle-lp-button battle-button">Pocao de vida</button>
+                <button disabled onclick=drinkMP() class="battle-mp-button battle-button">Pocao de mana</button>
+            </div>
+        </div>
+        <div id="victory-screen">
+            <h1 class="victory-title">Viva o heroi!</h1>
+            <img class="orb-img" src="assets/img/orb.png" alt="">
+            <p class="victory-description">Voce recuperou nosso Orb e seremos eternamente gratos a voce!</p>
+            <button class="victory-buttons" onclick=setVillage()>Continuar jogando</button>
+            <button class="victory-buttons" onclick=exitGame()>Sair</button>
+        </div>
+    </div>
+    
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+.village-screen {
+    display: none;
+    background: rgb(43, 255, 0);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.player-stats {
+    height: 100px;
+    /* background: green; */
+    background-image: url("../img/stats-box-bg-01.png");
+    border: 2px solid rgba(0, 0, 0, 0.342);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.village-char-box {
+    background-image: url("../img/village-bg-01.png");
+    height: 250px;
+}
+
+.village-buttons-box {
+    /* background: green; */
+    background-image: url("../img/buttons-box-bg-01.png");
+    height: 100px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.438);
+}
+
+.village-button {
+    padding: 5px;
+    min-width: 100px;
+    cursor: pointer;
+    font-size: 12px;
+    box-shadow: 0 0 5px black;
+}
+
+.stats {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.village-char-img {
+    position: relative;
+    top: 80px;
+    left: 111px;
+}
+.life-mana-box {
+    padding: 0 10px;
+    padding-top: 10px;
+    height: 30px;
+    /* background: rgba(255, 255, 255, 0.616); */
+    display: flex;
+    justify-content: space-between;
+}
+
+.life-bar-bg {
+    background: rgb(255, 61, 61);
+    height: 20px;
+    width: 150px;
+    border: 1px solid black;
+}
+.mana-bar-bg {
+    background: rgb(255, 61, 61);
+    height: 20px;
+    width: 150px;
+    border: 1px solid black;
+}
+
+.life-bar {
+    height: 100%;
+    width: 100%;
+    background: rgb(140, 233, 0);
+    text-align: center;
+}
+.mana-bar {
+    height: 100%;
+    width: 100%;
+    background: rgb(186, 0, 233);
+    text-align: center;
+}
+
+.life-bar-stats {
+    text-align: center;
+    position: relative;
+    top: -18px;
+    font-weight: bold;
+}
+.mana-bar-stats {
+    text-align: center;
+    position: relative;
+    top: -18px;
+    font-weight: bold;
+}
+.victory-button {
+    display: none;
+    padding: 2px;
+    width: 120px;
+    margin: auto;
+    font-weight: bold;
+    background: yellow;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid black;
+}
