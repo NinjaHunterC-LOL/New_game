@@ -1,49 +1,45 @@
-export class Goblin {
-    name = "Goblin";
-    life = 50;
-    maxLife = 50;
-    experience = 20;
-
-    dropGold(){
-        return Math.ceil(3 + Math.random() * 12);
+class Enemy {
+    constructor(name, life, experience, minGold, maxGoldBonus, minAtk, atkBonus) {
+        this.name = name;
+        this.life = life;
+        this.maxLife = life;
+        this.experience = experience;
+        this.minGold = minGold;
+        this.maxGoldBonus = maxGoldBonus;
+        this.minAtk = minAtk;
+        this.atkBonus = atkBonus;
     }
+
+    dropGold() {
+        return Math.ceil(this.minGold + Math.random() * this.maxGoldBonus);
+    }
+
     attack() {
         const random = Math.random() * 10;
+        const damage = this.minAtk + Math.ceil(Math.random() * this.atkBonus);
+
         if (random < 8) {
-            return 5 + Math.ceil(Math.random() * 10);
+            return damage; // Normal hit (80% chance)
         } else if (random < 9) {
-            return (5 + Math.ceil(Math.random() * 10)) * 2;
+            return damage * 2; // Critical hit (10% chance)
         } else {
-            return 0;
+            return 0; // Miss (10% chance)
         }
     }
+
     takeDamage(damage) {
-        this.life = Math.max(0, (this.life - damage));
+        this.life = Math.max(0, this.life - damage);
     }
 }
 
-export class Orc {
-    name = "Orc";
-    life = 75;
-    maxLife = 75;
-    experience = 30;
-
-    dropGold(){
-        return Math.ceil(5 + Math.random() * 15);
-    }
-    attack() {
-        const random = Math.random() * 10;
-        if (random < 8) {
-            return 7 + Math.ceil(Math.random() * 15);
-        } else if (random < 9) {
-            return (7 + Math.ceil(Math.random() * 15)) * 2;
-        } else {
-            return 0;
-        }
-    }
-    takeDamage(damage) {
-        this.life = Math.max(0, (this.life - damage));
+export class Goblin extends Enemy {
+    constructor() {
+        super("Goblin", 50, 20, 3, 12, 5, 10);
     }
 }
 
-// export default {Goblin, Orc}
+export class Orc extends Enemy {
+    constructor() {
+        super("Orc", 75, 30, 5, 15, 7, 15);
+    }
+}
