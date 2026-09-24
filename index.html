@@ -17,29 +17,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
-    
     <title>RPG Game</title>
 </head>
 <body>
-    <audio id="sound-effect" src="">
-    </audio>
+    <audio id="sound-effect" src=""></audio>
     <div class="game-screen">
         <div id="create-char-screen" class="create-char-screen">
             <h1 class="start-title">The Quest for the Orb</h1>
-            <p class="description">Ajude sua vila recuperando o Orb que foi roubado pelo Rei Orc. Percorra todas as dungeons e derrote todos os chefes ate liberar o Forte dos Orcs, onde esta escondido o Orb</p>
-            <input id="name-input" type="text" placeholder="Escolha o nome do personagem">
-            <button onclick=startGame() id="name-button">Iniciar</button>
-            <p class="start-stats">Nos diga o seu nome aventureiro</p>
+            <p class="description">Help your village recover the Orb stolen by the Orc King. Go through all the dungeons and defeat every boss to reach the Orc Fortress where the Orb is hidden.</p>
+            <input id="name-input" type="text" placeholder="Choose character name">
+            <button onclick=startGame() id="name-button">Start</button>
+            <p class="start-stats">Tell us your name, adventurer</p>
         </div>
         <div id="village-screen" class="village-screen">
-            <div class="page-title">Vila Nova Esperanca</div>
+            <div class="page-title">New Hope Village</div>
             <div class="player-stats">
                 <p class="stats-01 stats"></p>
                 <p class="stats-02 stats"></p>
                 <p class="stats-03 stats"></p>
                 <p class="stats-04 stats"></p>
-                <button onclick=setVictoryScreen() class="victory-button">Finalizar jogo!</button>
-
+                <button onclick=setVictoryScreen() class="victory-button">Finish Game!</button>
             </div>
             <div class="village-char-box">
                 <div class="life-mana-box">
@@ -55,83 +52,73 @@
                 <img class="village-char-img" src="assets/img/warrior-01-128.png" alt="">
             </div>
             <div class="village-buttons-box">
-                <button onclick=setShop() class="village-button">Loja</button>
-                <button onclick=setInventory() class="village-button">Inventario</button>
-                <button onclick=drinkLP() class="village-button">Pocao de vida</button>
-                <button onclick=drinkMP() class="village-button">Pocao de mana</button>
-                <button onclick=setMap() class="village-button">Explorar</button>
-                <button onclick=exitGame() class="village-button">Sair</button>
+                <button onclick=setShop() class="village-button">Shop</button>
+                <button onclick=setInventory() class="village-button">Inventory</button>
+                <button onclick=drinkLP() class="village-button">Health Potion</button>
+                <button onclick=drinkMP() class="village-button">Mana Potion</button>
+                <button onclick=setMap() class="village-button">Explore</button>
+                <button onclick=exitGame() class="village-button">Exit</button>
             </div>
         </div>
         <div id="shop-screen">
-            <div class="page-title">Loja de Bugigangas</div>
+            <div class="page-title">Trinket Shop</div>
             <div class="player-stats">
                 <p class="shop-stats-01 stats"></p>
                 <p class="shop-stats-02 stats"></p>
-                
             </div>
             <div class="buying-box">
-                
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/life-potion-01.png" alt="">
-                    <p onclick=showItemData(1) class="shop-item-name shop-item-1">Pocao de vida: </p>
-                    <input class="shop-item-input lp-input" type="number" placeholder="quant">
-                    <button onclick=buyEquipment(1) class="shop-item-button">Comprar</button>
+                    <p onclick=showItemData(1) class="shop-item-name shop-item-1">Health Potion: </p>
+                    <input class="shop-item-input lp-input" type="number" placeholder="qty">
+                    <button onclick=buyEquipment(1) class="shop-item-button">Buy</button>
                 </div>
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/mana-potion-01.png" alt="">
-                    <p onclick=showItemData(2) class="shop-item-name shop-item-2">Pocao de mana: </p>
-                    <input class="shop-item-input mp-input" type="number" placeholder="quant">
-                    <button onclick=buyEquipment(2) class="shop-item-button">Comprar</button>
+                    <p onclick=showItemData(2) class="shop-item-name shop-item-2">Mana Potion: </p>
+                    <input class="shop-item-input mp-input" type="number" placeholder="qty">
+                    <button onclick=buyEquipment(2) class="shop-item-button">Buy</button>
                 </div>
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/iron-sword-01.png" alt="">
-                    <p onclick=showItemData(3) class="shop-item-name shop-item-3">Espada de Aco</p>
-                    <button onclick=buyEquipment(3) class="shop-item-button">Comprar</button>
+                    <p onclick=showItemData(3) class="shop-item-name shop-item-3">Steel Sword</p>
+                    <button onclick=buyEquipment(3) class="shop-item-button">Buy</button>
                 </div>
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/chain-armor-01.png" alt="">
-                    <p onclick=showItemData(4) class="shop-item-name shop-item-4">Armadura de Malha</p>
-                    <button onclick=buyEquipment(4) class="shop-item-button">Comprar</button>
+                    <p onclick=showItemData(4) class="shop-item-name shop-item-4">Chainmail Armor</p>
+                    <button onclick=buyEquipment(4) class="shop-item-button">Buy</button>
                 </div>
-
-
-            
             </div>
             <div class="shop-footer">
                 <div class="shop-message">
-                    Bem vindo aventureiro! O que deseja comprar?                    
+                    Welcome adventurer! What would you like to buy?
                 </div>
                 <div>
-                    <button  class="shop-exit-button" onclick=setSellerScreen()>Vender Itens</button>
-                    <button onclick=setVillage() class="shop-exit-button">Sair da loja</button>
+                    <button class="shop-exit-button" onclick=setSellerScreen()>Sell Items</button>
+                    <button onclick=setVillage() class="shop-exit-button">Leave Shop</button>
                 </div>
-                
             </div>
-            
         </div>
         <div id="seller-screen">
             <div class="page-title">
-                Loja de Bugigangas
+                Trinket Shop
             </div>
             <div class="player-stats">
                 <p class="selling-stats"></p>
-                <p class="selling-item-message">Selecione para ver as informacoes dos items</p>
+                <p class="selling-item-message">Select an item to view its details</p>
             </div>
-            <div class="seller-items-box">
-
-            </div>
+            <div class="seller-items-box"></div>
             <div class="seller-buttons-box">
-                <p class="selling-message">Selecione o item que deseja vender</p>
+                <p class="selling-message">Select the item you want to sell</p>
                 <div>
-                    <button class="seller-buttons" onclick=sellItem()>Vender</button>
-                    <button class="seller-buttons" onclick=setShop()>Voltar</button>
+                    <button class="seller-buttons" onclick=sellItem()>Sell</button>
+                    <button class="seller-buttons" onclick=setShop()>Back</button>
                 </div>
-                
             </div>
         </div>
         <div id="inventory-screen">
-            <div class="page-title">Inventario</div>
+            <div class="page-title">Inventory</div>
             <div class="player-stats">
                 <div class="equipped-box">
                     <div onclick=selectShowItem(-1) class="equipped-weapon-img-box">
@@ -140,62 +127,48 @@
                     <div onclick=selectShowItem(-2) class="equipped-armor-img-box">
                         <img class="equipped-armor-img" src="" alt="">
                     </div>
-                    
                 </div>
-                <p class="inventory-stats-01 stats">Clique para ver mais e selecionar</p>
+                <p class="inventory-stats-01 stats">Click to view details and select</p>
                 <p class="inventory-stats-02 stats"></p>
-                
             </div>
-            <div class="inventory-box">
-                <!-- <div onclick=selectShowItem(0) class="inventory-item-name">
-                    item de teste
-                </div> -->
-            </div>
-
+            <div class="inventory-box"></div>
             <div class="inventory-item-selection">
-                <p class="inventory-message">Selecione um item para equipar</p>
+                <p class="inventory-message">Select an item to equip</p>
                 <div class="map-buttons-box">
-
-                    <button onclick=equipItem() class="inventory-buttons">Equipar</button>
-                    <button onclick=setVillage() class="inventory-buttons">Sair do inventario</button>
+                    <button onclick=equipItem() class="inventory-buttons">Equip</button>
+                    <button onclick=setVillage() class="inventory-buttons">Exit Inventory</button>
                 </div>
             </div>
         </div>
         <div id="map-screen">
-            <div class="page-title">Mapa</div>
+            <div class="page-title">Map</div>
             <div class="player-stats">
                 <p class="map-stats-01 stats"></p>
                 <p class="map-stats-02 stats"></p>
-                
             </div>
             <div class="map-box">
-                <div onclick=selectRespawn(1) class="respawn-box clickable"><p class="respawn-text">Vila Goblin</p></div>
+                <div onclick=selectRespawn(1) class="respawn-box clickable"><p class="respawn-text">Goblin Village</p></div>
                 <div class="respawn-box"></div>
                 <div class="respawn-box"></div>
-                <div onclick=selectRespawn(2) class="respawn-box clickable"><p class="respawn-text">Forte dos Orcs</p></div>
+                <div onclick=selectRespawn(2) class="respawn-box clickable"><p class="respawn-text">Orc Fortress</p></div>
             </div>
-
             <div class="map-respawn-selection">
-                <p class="map-message">Para onde deseja ir?</p>
+                <p class="map-message">Where would you like to go?</p>
                 <div class="map-buttons-box">
-
-                    <button onclick=goToRespawn() class="respawn-selection-button map-buttons">Ir</button>
-                    <button onclick=setVillage() class="map-exit-button map-buttons">Voltar para a vila</button>
+                    <button onclick=goToRespawn() class="respawn-selection-button map-buttons">Go</button>
+                    <button onclick=setVillage() class="map-exit-button map-buttons">Return to Village</button>
                 </div>
             </div>
         </div>
         <div id="battle-screen">
-            
-            <div class="page-title">Batalha</div>
+            <div class="page-title">Battle</div>
             <div class="player-stats">
                 <p class="battle-stats-01 stats"></p>
                 <p class="battle-stats-02 stats"></p>
                 <p class="battle-stats-03 stats"></p>
-                <p class="battle-stats-04 stats">Ataque para comecar!</p>
-                
+                <p class="battle-stats-04 stats">Attack to start!</p>
             </div>
             <div class="battle-box">
-                
                 <div class="combat-box">
                     <div class="hero-box">
                         <div class="life-mana-box-btl">
@@ -218,23 +191,22 @@
                         <img class="monster-battle-img" src="" alt="">
                     </div>
                 </div>
-                
             </div>
             <div class="battle-options">
-                <button onclick=figth(1) class="attack-button battle-button">Ataque comum</button>
-                <button onclick=figth(2) class="special-attack-button battle-button">Ataque Especial</button>
-                <button disabled onclick=exitBattle() class="battle-exit-button battle-button">Voltar</button>
-                <button disabled onclick=goToRespawn() class="battle-continue-button battle-button">Continuar</button>
-                <button disabled onclick=drinkLP() class="battle-lp-button battle-button">Pocao de vida</button>
-                <button disabled onclick=drinkMP() class="battle-mp-button battle-button">Pocao de mana</button>
+                <button onclick=figth(1) class="attack-button battle-button">Basic Attack</button>
+                <button onclick=figth(2) class="special-attack-button battle-button">Special Attack</button>
+                <button disabled onclick=exitBattle() class="battle-exit-button battle-button">Back</button>
+                <button disabled onclick=goToRespawn() class="battle-continue-button battle-button">Continue</button>
+                <button disabled onclick=drinkLP() class="battle-lp-button battle-button">Health Potion</button>
+                <button disabled onclick=drinkMP() class="battle-mp-button battle-button">Mana Potion</button>
             </div>
         </div>
         <div id="victory-screen">
-            <h1 class="victory-title">Viva o heroi!</h1>
+            <h1 class="victory-title">Hail the hero!</h1>
             <img class="orb-img" src="assets/img/orb.png" alt="">
-            <p class="victory-description">Voce recuperou nosso Orb e seremos eternamente gratos a voce!</p>
-            <button class="victory-buttons" onclick=setVillage()>Continuar jogando</button>
-            <button class="victory-buttons" onclick=exitGame()>Sair</button>
+            <p class="victory-description">You recovered our Orb and we will be eternally grateful to you!</p>
+            <button class="victory-buttons" onclick=setVillage()>Keep Playing</button>
+            <button class="victory-buttons" onclick=exitGame()>Exit</button>
         </div>
     </div>
     
