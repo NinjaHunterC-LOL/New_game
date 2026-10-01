@@ -10,7 +10,10 @@ body {
 .pixel-character {
   width: 95px;            /* Width of 1 frame */
   height: 100px;          /* Height of 1 frame */
-  background-image: url('sprite.png'); /* Your image file */
+  background-image: url('frames MC01.png');
+  background-image: url('frames MC02.png');
+  background-image: url('frames MC03.png');
+  background-image: url('frames MC04.png');
   background-repeat: no-repeat;
   
   /* Keeps pixel art sharp and crisp */
