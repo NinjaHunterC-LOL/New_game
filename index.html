@@ -17,19 +17,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
-<title>RPG Game</title>
+    <title>RPG Game</title>
 </head> 
 <body> 
     <audio id="sound-effect" src=""></audio>
     <div class="game-screen">
--
-+
+
         <!-- STARTING SCREEN -->
         <div id="create-char-screen" class="create-char-screen">
             <h1 class="start-title">The Quest for the Orb</h1>
             <p class="description">Help your village recover the Orb stolen by the Orc King. Go through all the dungeons and defeat every boss to reach the Orc Fortress where the Orb is hidden.</p>
             <input id="name-input" type="text" placeholder="Choose character name">
-            <button onclick=startGame() id="name-button">Start</button>
+            <button onclick="startGame()" id="name-button">Start</button>
             <p class="start-stats">Tell us your name, adventurer</p>
         </div>
 
@@ -41,7 +40,7 @@
                 <p class="stats-02 stats"></p>
                 <p class="stats-03 stats"></p>
                 <p class="stats-04 stats"></p>
-                <button onclick=setVictoryScreen() class="victory-button">Finish Game!</button>
+                <button onclick="setVictoryScreen()" class="victory-button">Finish Game!</button>
             </div>
             <div class="village-char-box">
                 <div class="life-mana-box">
@@ -58,12 +57,12 @@
                 <div class="pixel-character village-char-img"></div>
             </div>
             <div class="village-buttons-box">
-                <button onclick=setShop() class="village-button">Shop</button>
-                <button onclick=setInventory() class="village-button">Inventory</button>
-                <button onclick=drinkLP() class="village-button">Health Potion</button>
-                <button onclick=drinkMP() class="village-button">Mana Potion</button>
-                <button onclick=setMap() class="village-button">Explore</button>
-                <button onclick=exitGame() class="village-button">Exit</button>
+                <button onclick="setShop()" class="village-button">Shop</button>
+                <button onclick="setInventory()" class="village-button">Inventory</button>
+                <button onclick="drinkLP()" class="village-button">Health Potion</button>
+                <button onclick="drinkMP()" class="village-button">Mana Potion</button>
+                <button onclick="setMap()" class="village-button">Explore</button>
+                <button onclick="exitGame()" class="village-button">Exit</button>
             </div>
         </div>
 
@@ -77,25 +76,25 @@
             <div class="buying-box">
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/life-potion-01.png" alt="">
-                    <p onclick=showItemData(1) class="shop-item-name shop-item-1">Health Potion: </p>
+                    <p onclick="showItemData(1)" class="shop-item-name shop-item-1">Health Potion: </p>
                     <input class="shop-item-input lp-input" type="number" placeholder="qty">
-                    <button onclick=buyEquipment(1) class="shop-item-button">Buy</button>
+                    <button onclick="buyEquipment(1)" class="shop-item-button">Buy</button>
                 </div>
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/mana-potion-01.png" alt="">
-                    <p onclick=showItemData(2) class="shop-item-name shop-item-2">Mana Potion: </p>
+                    <p onclick="showItemData(2)" class="shop-item-name shop-item-2">Mana Potion: </p>
                     <input class="shop-item-input mp-input" type="number" placeholder="qty">
-                    <button onclick=buyEquipment(2) class="shop-item-button">Buy</button>
+                    <button onclick="buyEquipment(2)" class="shop-item-button">Buy</button>
                 </div>
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/iron-sword-01.png" alt="">
-                    <p onclick=showItemData(3) class="shop-item-name shop-item-3">Steel Sword</p>
-                    <button onclick=buyEquipment(3) class="shop-item-button">Buy</button>
+                    <p onclick="showItemData(3)" class="shop-item-name shop-item-3">Steel Sword</p>
+                    <button onclick="buyEquipment(3)" class="shop-item-button">Buy</button>
                 </div>
                 <div class="shop-item-box">
                     <img class="shop-item-img" src="assets/img/chain-armor-01.png" alt="">
-                    <p onclick=showItemData(4) class="shop-item-name shop-item-4">Chainmail Armor</p>
-                    <button onclick=buyEquipment(4) class="shop-item-button">Buy</button>
+                    <p onclick="showItemData(4)" class="shop-item-name shop-item-4">Chainmail Armor</p>
+                    <button onclick="buyEquipment(4)" class="shop-item-button">Buy</button>
                 </div>
             </div>
             <div class="shop-footer">
@@ -103,8 +102,8 @@
                     Welcome adventurer! What would you like to buy?
                 </div>
                 <div>
-                    <button class="shop-exit-button" onclick=setSellerScreen()>Sell Items</button>
-                    <button onclick=setVillage() class="shop-exit-button">Leave Shop</button>
+                    <button class="shop-exit-button" onclick="setSellerScreen()">Sell Items</button>
+                    <button onclick="setVillage()" class="shop-exit-button">Leave Shop</button>
                 </div>
             </div>
         </div>
@@ -120,8 +119,8 @@
             <div class="seller-buttons-box">
                 <p class="selling-message">Select the item you want to sell</p>
                 <div>
-                    <button class="seller-buttons" onclick=sellItem()>Sell</button>
-                    <button class="seller-buttons" onclick=setShop()>Back</button>
+                    <button class="seller-buttons" onclick="sellItem()">Sell</button>
+                    <button class="seller-buttons" onclick="setShop()">Back</button>
                 </div>
             </div>
         </div>
@@ -131,10 +130,10 @@
             <div class="page-title">Inventory</div>
             <div class="player-stats">
                 <div class="equipped-box">
-                    <div onclick=selectShowItem(-1) class="equipped-weapon-img-box">
+                    <div onclick="selectShowItem(-1)" class="equipped-weapon-img-box">
                         <img class="equipped-weapon-img" src="" alt="">
                     </div>
-                    <div onclick=selectShowItem(-2) class="equipped-armor-img-box">
+                    <div onclick="selectShowItem(-2)" class="equipped-armor-img-box">
                         <img class="equipped-armor-img" src="" alt="">
                     </div>
                 </div>
@@ -145,8 +144,8 @@
             <div class="inventory-item-selection">
                 <p class="inventory-message">Select an item to equip</p>
                 <div class="map-buttons-box">
-                    <button onclick=equipItem() class="inventory-buttons">Equip</button>
-                    <button onclick=setVillage() class="inventory-buttons">Exit Inventory</button>
+                    <button onclick="equipItem()" class="inventory-buttons">Equip</button>
+                    <button onclick="setVillage()" class="inventory-buttons">Exit Inventory</button>
                 </div>
             </div>
         </div>
@@ -159,16 +158,16 @@
                 <p class="map-stats-02 stats"></p>
             </div>
             <div class="map-box">
-                <div onclick=selectRespawn(1) class="respawn-box clickable"><p class="respawn-text">Goblin Village</p></div>
+                <div onclick="selectRespawn(1)" class="respawn-box clickable"><p class="respawn-text">Goblin Village</p></div>
                 <div class="respawn-box"></div>
                 <div class="respawn-box"></div>
-                <div onclick=selectRespawn(2) class="respawn-box clickable"><p class="respawn-text">Orc Fortress</p></div>
+                <div onclick="selectRespawn(2)" class="respawn-box clickable"><p class="respawn-text">Orc Fortress</p></div>
             </div>
             <div class="map-respawn-selection">
                 <p class="map-message">Where would you like to go?</p>
                 <div class="map-buttons-box">
-                    <button onclick=goToRespawn() class="respawn-selection-button map-buttons">Go</button>
-                    <button onclick=setVillage() class="map-exit-button map-buttons">Return to Village</button>
+                    <button onclick="goToRespawn()" class="respawn-selection-button map-buttons">Go</button>
+                    <button onclick="setVillage()" class="map-exit-button map-buttons">Return to Village</button>
                 </div>
             </div>
         </div>
@@ -208,12 +207,12 @@
                 </div>
             </div>
             <div class="battle-options">
-                <button onclick=figth(1) class="attack-button battle-button">Basic Attack</button>
-                <button onclick=figth(2) class="special-attack-button battle-button">Special Attack</button>
-                <button disabled onclick=exitBattle() class="battle-exit-button battle-button">Back</button>
-                <button disabled onclick=goToRespawn() class="battle-continue-button battle-button">Continue</button>
-                <button disabled onclick=drinkLP() class="battle-lp-button battle-button">Health Potion</button>
-                <button disabled onclick=drinkMP() class="battle-mp-button battle-button">Mana Potion</button>
+                <button onclick="figth(1)" class="attack-button battle-button">Basic Attack</button>
+                <button onclick="figth(2)" class="special-attack-button battle-button">Special Attack</button>
+                <button disabled onclick="exitBattle()" class="battle-exit-button battle-button">Back</button>
+                <button disabled onclick="goToRespawn()" class="battle-continue-button battle-button">Continue</button>
+                <button disabled onclick="drinkLP()" class="battle-lp-button battle-button">Health Potion</button>
+                <button disabled onclick="drinkMP()" class="battle-mp-button battle-button">Mana Potion</button>
             </div>
         </div>
 
@@ -222,12 +221,12 @@
             <h1 class="victory-title">Hail the hero!</h1>
             <img class="orb-img" src="assets/img/orb.png" alt="">
             <p class="victory-description">You recovered our Orb and we will be eternally grateful to you!</p>
-            <button class="victory-buttons" onclick=setVillage()>Keep Playing</button>
-            <button class="victory-buttons" onclick=exitGame()>Exit</button>
+            <button class="victory-buttons" onclick="setVillage()">Keep Playing</button>
+            <button class="victory-buttons" onclick="exitGame()">Exit</button>
         </div>
 
     </div>
--    <script src="/assets/js/script.js"></script>
-+    <script src="/assets/js/script.js"></script> 
+
+    <script src="/assets/js/script.js"></script> 
 </body>
 </html>
