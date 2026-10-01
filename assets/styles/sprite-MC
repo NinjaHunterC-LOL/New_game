@@ -8,8 +8,8 @@ body {
 }
 
 .pixel-character {
-  width: 95px;           /* Width of 1 frame */
-  height: 100px;         /* Height of 1 frame */
+  width: 95px;           
+  height: 100px;         
   background-image: url('sprite.png');
   background-image: url('Frames MC01.png');
   background-image: url('Frames MC02.png');
@@ -21,9 +21,14 @@ body {
   background-size: 380px 100px; 
   image-rendering: pixelated;
 
+  animation: swapFrames 0.8s steps(1) infinite;
   animation: play4Frames 0.8s steps(4) infinite;
 }
-
+@keyframes swapFrames {
+  0%   { background-image: url('../images/frames-MC01.png'); }
+  25%  { background-image: url('../images/frames-MC02.png'); }
+  50%  { background-image: url('../images/frames-MC03.png'); }
+  75%  { background-image: url('../images/frames-MC04.png'); }
 @keyframes play4Frames {
   from {
     background-position: 0px 0px;
