@@ -8,27 +8,16 @@ body {
 }
 
 .pixel-character {
-  width: 95px;            /* Width of 1 frame */
-  height: 100px;          /* Height of 1 frame */
-  background-image: url('frames MC01.png');
-  background-image: url('frames MC02.png');
-  background-image: url('frames MC03.png');
-  background-image: url('frames MC04.png');
+  width: 95px;
+  height: 100px;
   background-repeat: no-repeat;
-  
-  /* Keeps pixel art sharp and crisp */
   image-rendering: pixelated;
-
-  /* Plays 4 frames over 0.8 seconds repeatedly */
-  animation: play4Frames 0.8s steps(4) infinite;
+  animation: swapFrames 0.8s steps(1) infinite;
 }
 
-/* Moves the sprite image left across 4 frames */
-@keyframes play4Frames {
-  from {
-    background-position: 0px 0px;
-  }
-  to {
-    background-position: -380px 0px; /* Total width: 95px * 4 = 380px */
-  }
+@keyframes swapFrames {
+  0%   { background-image: url('frames MC01.png'); }
+  25%  { background-image: url('frames MC02.png'); }
+  50%  { background-image: url('frames MC03.png'); }
+  75%  { background-image: url('frames MC04.png'); }
 }
