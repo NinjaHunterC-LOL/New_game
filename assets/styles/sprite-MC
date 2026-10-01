@@ -1,0 +1,31 @@
+body {
+  background-color: #1a1a24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.pixel-character {
+  width: 95px;            /* Width of 1 frame */
+  height: 100px;          /* Height of 1 frame */
+  background-image: url('sprite.png'); /* Your image file */
+  background-repeat: no-repeat;
+  
+  /* Keeps pixel art sharp and crisp */
+  image-rendering: pixelated;
+
+  /* Plays 4 frames over 0.8 seconds repeatedly */
+  animation: play4Frames 0.8s steps(4) infinite;
+}
+
+/* Moves the sprite image left across 4 frames */
+@keyframes play4Frames {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -380px 0px; /* Total width: 95px * 4 = 380px */
+  }
+}
