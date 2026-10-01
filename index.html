@@ -22,6 +22,8 @@
 <body>
     <audio id="sound-effect" src=""></audio>
     <div class="game-screen">
+
+        <!-- STARTING SCREEN -->
         <div id="create-char-screen" class="create-char-screen">
             <h1 class="start-title">The Quest for the Orb</h1>
             <p class="description">Help your village recover the Orb stolen by the Orc King. Go through all the dungeons and defeat every boss to reach the Orc Fortress where the Orb is hidden.</p>
@@ -29,6 +31,8 @@
             <button onclick=startGame() id="name-button">Start</button>
             <p class="start-stats">Tell us your name, adventurer</p>
         </div>
+
+        <!-- VILLAGE SCREEN -->
         <div id="village-screen" class="village-screen">
             <div class="page-title">New Hope Village</div>
             <div class="player-stats">
@@ -49,7 +53,8 @@
                         <p class="mana-bar-stats"></p>
                     </div>
                 </div>
-                <img class="village-char-img" src="assets/img/warrior-01-128.png" alt="">
+                <!-- ANIMATED CHARACTER SPRITE -->
+                <div class="pixel-character village-char-img"></div>
             </div>
             <div class="village-buttons-box">
                 <button onclick=setShop() class="village-button">Shop</button>
@@ -60,6 +65,8 @@
                 <button onclick=exitGame() class="village-button">Exit</button>
             </div>
         </div>
+
+        <!-- SHOP SCREEN -->
         <div id="shop-screen">
             <div class="page-title">Trinket Shop</div>
             <div class="player-stats">
@@ -100,10 +107,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- SELLER SCREEN -->
         <div id="seller-screen">
-            <div class="page-title">
-                Trinket Shop
-            </div>
+            <div class="page-title">Trinket Shop</div>
             <div class="player-stats">
                 <p class="selling-stats"></p>
                 <p class="selling-item-message">Select an item to view its details</p>
@@ -117,6 +124,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- INVENTORY SCREEN -->
         <div id="inventory-screen">
             <div class="page-title">Inventory</div>
             <div class="player-stats">
@@ -140,6 +149,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- MAP SCREEN -->
         <div id="map-screen">
             <div class="page-title">Map</div>
             <div class="player-stats">
@@ -160,6 +171,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- BATTLE SCREEN -->
         <div id="battle-screen">
             <div class="page-title">Battle</div>
             <div class="player-stats">
@@ -181,7 +194,8 @@
                                 <p class="mana-bar-stats-btl"></p>
                             </div>
                         </div>
-                        <img class="char-battle-img" src="assets/img/warrior-01-128.png" alt="">
+                        <!-- ANIMATED CHARACTER SPRITE IN BATTLE -->
+                        <div class="pixel-character char-battle-img"></div>
                     </div>
                     <div class="monster-box">
                         <div class="life-bar-bg-monster">
@@ -201,6 +215,8 @@
                 <button disabled onclick=drinkMP() class="battle-mp-button battle-button">Mana Potion</button>
             </div>
         </div>
+
+        <!-- VICTORY SCREEN -->
         <div id="victory-screen">
             <h1 class="victory-title">Hail the hero!</h1>
             <img class="orb-img" src="assets/img/orb.png" alt="">
@@ -208,22 +224,9 @@
             <button class="victory-buttons" onclick=setVillage()>Keep Playing</button>
             <button class="victory-buttons" onclick=exitGame()>Exit</button>
         </div>
+
     </div>
-    
+
     <script src="/assets/js/script.js"></script>
-</body>
-</html>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pixel Character</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- This container holds your animating pixel character -->
-  <div class="pixel-character"></div>
-
 </body>
 </html>
