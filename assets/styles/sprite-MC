@@ -8,16 +8,27 @@ body {
 }
 
 .pixel-character {
-  width: 95px;
-  height: 100px;
+  width: 95px;           /* Width of 1 frame */
+  height: 100px;         /* Height of 1 frame */
+  background-image: url('sprite.png');
+  background-image: url('Frames MC01.png');
+  background-image: url('Frames MC02.png');
+  background-image: url('Frames MC03.png');
+  background-image: url('Frames MC04.png');
   background-repeat: no-repeat;
+  
+  /* Forces the sprite sheet size (380px wide = 95px * 4 frames) */
+  background-size: 380px 100px; 
   image-rendering: pixelated;
-  animation: swapFrames 0.8s steps(1) infinite;
+
+  animation: play4Frames 0.8s steps(4) infinite;
 }
 
-@keyframes swapFrames {
-  0%   { background-image: url('frames MC01.png'); }
-  25%  { background-image: url('frames MC02.png'); }
-  50%  { background-image: url('frames MC03.png'); }
-  75%  { background-image: url('frames MC04.png'); }
+@keyframes play4Frames {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -380px 0px;
+  }
 }
