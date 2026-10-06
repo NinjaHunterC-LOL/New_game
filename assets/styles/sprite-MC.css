@@ -28,10 +28,10 @@ body {
 }
 -
 @keyframes swapFrames {
-  0%   { background-image: url('../images/frames-MC01.png'); }
-  25%  { background-image: url('../images/frames-MC02.png'); }
-  50%  { background-image: url('../images/frames-MC03.png'); }
-  75%  { background-image: url('../images/frames-MC04.png'); }
+  0%   { background-image: url('../Sprites/MC/frames-MC01.png'); }
+  25%  { background-image: url('../Sprites/MC/frames-MC02.png'); }
+  50%  { background-image: url('../Sprites/MC/frames-MC03.png'); }
+  75%  { background-image: url('../Sprites/MC/frames-MC04.png'); }
 @keyframes play4Frames {
   from {
     background-position: 0px 0px;
